@@ -1,0 +1,54 @@
+---
+const faqs = [
+  {
+    q: 'Is this a cheat or anti-cheat trigger?',
+    a: "No. CS2 Tools only adjusts standard Windows settings — power plans, process priority, CPU affinity — and Nvidia driver values. It doesn't touch the game files, memory, or network traffic. It does not interact with VAC.",
+  },
+  {
+    q: 'Will I actually see better framerate?',
+    a: "Honestly? It depends on your hardware and what's running in the background. The biggest wins usually come from killing background processes and switching to High Performance on laptops. The Nvidia vibrance module is purely a visual preference, not a perf tweak — the app even calls it out with a \"Placebo Rating.\"",
+  },
+  {
+    q: 'Does it collect any data?',
+    a: 'No telemetry, no analytics, no phone-home. The app runs entirely locally. The source is on GitHub if you want to verify.',
+  },
+  {
+    q: 'What does the Nvidia vibrance module need?',
+    a: "An Nvidia GPU with the Nvidia drivers installed. AMD users — that specific module won't work for you, but everything else will.",
+  },
+  {
+    q: 'I got a Windows SmartScreen warning. Is that bad?',
+    a: 'It can happen with the pre-built binaries from GitHub Releases because they aren\'t code-signed (signing certificates are expensive for a free side project). SmartScreen sometimes flags unsigned downloads until they\'ve built up reputation — whether you see it depends on your system and some Microsoft-side heuristics. The app is safe; the source is on GitHub if you want to verify. If you\'d rather not deal with the warning at all, install from the <a href="https://apps.microsoft.com/detail/9phsnkwf7qm4" target="_blank" rel="noopener">Microsoft Store</a> — that build is signed by Microsoft and won\'t trigger SmartScreen.',
+  },
+  {
+    q: 'Does it need administrator privileges?',
+    a: 'No. Every feature — power plans, CPU affinity, process killing, vibrance — works with standard user privileges. No UAC prompts, no elevation required.',
+  },
+  {
+    q: 'How light is it on system resources?',
+    a: 'Very. The app is built with Tauri v2 (Rust + Vue) instead of Electron, which keeps the binary under 20\u00a0MB on disk and the memory footprint minimal. It would defeat the point to advertise performance gains while running a bloated launcher in the background.',
+  },
+  {
+    q: 'Can I contribute?',
+    a: "Please do. Open an issue, submit a PR, or just star the repo if you find it useful. It's a solo side project and any help is welcome.",
+  },
+];
+---
+
+<section id="faq" class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">// FAQ</span>
+      <h2 class="section-title">Common questions.</h2>
+    </div>
+
+    <div class="faq-list">
+      {faqs.map(f => (
+        <details class="faq-item reveal">
+          <summary>{f.q}</summary>
+          <div class="faq-content"><Fragment set:html={f.a} /></div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,59 @@
+---
+const features = [
+  {
+    title: 'CPU core management',
+    body: "Pin CS2 to the exact cores you choose. Skip cores 0 & 1 to leave them for the OS — or use all of them if you prefer.",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/><line x1="20" y1="9" x2="22" y2="9"/><line x1="20" y1="14" x2="22" y2="14"/><line x1="2" y1="9" x2="4" y2="9"/><line x1="2" y1="14" x2="4" y2="14"/></svg>',
+  },
+  {
+    title: 'Power plan switching',
+    body: 'Auto-switch to High Performance when CS2 starts and back to Balanced when it closes. No manual toggling.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>',
+  },
+  {
+    title: 'Process kill list',
+    body: 'Define a list of background bloat — Discord overlays, sync clients, browsers — and have them shut down on launch.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17H7A5 5 0 0 1 7 7h2"/><path d="M15 7h2a5 5 0 1 1 0 10h-2"/><line x1="8" y1="12" x2="16" y2="12"/></svg>',
+  },
+  {
+    title: 'Nvidia digital vibrance',
+    body: 'Bumps saturation only while CS2 is the focused window, on the monitor running CS2. Alt-tab away and your normal vibrance comes back instantly.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+  },
+  {
+    title: 'Live status dashboard',
+    body: "See what's running, what got killed, and which power plan is active — all from a single overview screen.",
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 12 9 12 12 4 15 20 18 12 21 12"/></svg>',
+  },
+  {
+    title: 'Featherweight by design',
+    body: 'Built with Tauri (Rust + Vue), not Electron. Under 20\u00a0MB on disk and barely a blip on memory — because optimizing perf with a bloated app would be absurd.',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
+  },
+  {
+    title: 'Reverts everything',
+    body: 'When CS2 exits, every setting goes back to your defaults. No admin rights, no permanent “gaming mode.”',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+  },
+];
+---
+
+<section id="features" class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">// Features</span>
+      <h2 class="section-title">Everything CS2 needs. Nothing it doesn't.</h2>
+      <p class="section-sub">Focused tweaks that touch the parts of Windows that actually move framerate and input latency.</p>
+    </div>
+
+    <div class="features-grid">
+      {features.map(f => (
+        <div class="feature-card reveal">
+          <div class="feature-icon"><Fragment set:html={f.icon} /></div>
+          <h3>{f.title}</h3>
+          <p>{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+---
+const shots = [
+  { id: 'dashboard', label: 'Dashboard', src: '/assets/dashboard.png', alt: 'Dashboard' },
+  { id: 'cpu', label: 'CPU cores', src: '/assets/cpu-core-management.png', alt: 'CPU core management' },
+  { id: 'power', label: 'Power plans', src: '/assets/power-plans.png', alt: 'Power plans' },
+  { id: 'vibrance', label: 'Vibrance', src: '/assets/nvidia-vibrance.png', alt: 'Nvidia vibrance' },
+  { id: 'processes', label: 'Processes', src: '/assets/process-management.png', alt: 'Process management' },
+];
+---
+
+<section id="screens" class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">// A look inside</span>
+      <h2 class="section-title">Built to be readable.</h2>
+      <p class="section-sub">Every module has its own screen. No nested menus, no hidden toggles, no surprise behavior.</p>
+    </div>
+
+    <div class="shots-tabs reveal" id="shotsTabs">
+      {shots.map((s, i) => (
+        <button class={`shot-tab${i === 0 ? ' active' : ''}`} data-shot={s.id}>{s.label}</button>
+      ))}
+    </div>
+
+    <div class="shot-stage reveal" id="shotStage">
+      {shots.map((s, i) => (
+        <div class={`shot${i === 0 ? ' active' : ''}`} data-shot={s.id}>
+          <img src={s.src} alt={s.alt} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
